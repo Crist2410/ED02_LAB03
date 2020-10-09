@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Crist\\Desktop\\Cifrado\\LibreriaGenericos\\LibreriaGenericos.csproj": {}
+    "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\LibreriaGenericos\\LibreriaGenericos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Crist\\Desktop\\Cifrado\\LibreriaGenericos\\LibreriaGenericos.csproj": {
+    "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\LibreriaGenericos\\LibreriaGenericos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Crist\\Desktop\\Cifrado\\LibreriaGenericos\\LibreriaGenericos.csproj",
+        "projectUniqueName": "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\LibreriaGenericos\\LibreriaGenericos.csproj",
         "projectName": "LibreriaGenericos",
-        "projectPath": "C:\\Users\\Crist\\Desktop\\Cifrado\\LibreriaGenericos\\LibreriaGenericos.csproj",
+        "projectPath": "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\LibreriaGenericos\\LibreriaGenericos.csproj",
         "packagesPath": "C:\\Users\\Crist\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Crist\\Desktop\\Cifrado\\LibreriaGenericos\\obj\\",
+        "outputPath": "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\LibreriaGenericos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

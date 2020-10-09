@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Crist\\Desktop\\Cifrado\\ProyectoConsola\\ProyectoConsola.csproj": {}
+    "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\ProyectoConsola\\ProyectoConsola.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Crist\\Desktop\\Cifrado\\ProyectoConsola\\ProyectoConsola.csproj": {
+    "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\ProyectoConsola\\ProyectoConsola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Crist\\Desktop\\Cifrado\\ProyectoConsola\\ProyectoConsola.csproj",
+        "projectUniqueName": "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\ProyectoConsola\\ProyectoConsola.csproj",
         "projectName": "ProyectoConsola",
-        "projectPath": "C:\\Users\\Crist\\Desktop\\Cifrado\\ProyectoConsola\\ProyectoConsola.csproj",
+        "projectPath": "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\ProyectoConsola\\ProyectoConsola.csproj",
         "packagesPath": "C:\\Users\\Crist\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Crist\\Desktop\\Cifrado\\ProyectoConsola\\obj\\",
+        "outputPath": "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\ProyectoConsola\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
