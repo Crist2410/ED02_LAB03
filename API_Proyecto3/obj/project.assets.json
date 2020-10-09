@@ -6069,25 +6069,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Crist\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\josed\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\API_Proyecto3\\API_Proyecto3.csproj",
+      "projectUniqueName": "C:\\Users\\josed\\Desktop\\ED02_LAB03\\API_Proyecto3\\API_Proyecto3.csproj",
       "projectName": "API_Proyecto3",
-      "projectPath": "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\API_Proyecto3\\API_Proyecto3.csproj",
-      "packagesPath": "C:\\Users\\Crist\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Crist\\Desktop\\ED02_LAB03\\API_Proyecto3\\obj\\",
+      "projectPath": "C:\\Users\\josed\\Desktop\\ED02_LAB03\\API_Proyecto3\\API_Proyecto3.csproj",
+      "packagesPath": "C:\\Users\\josed\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\josed\\Desktop\\ED02_LAB03\\API_Proyecto3\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Crist\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\josed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -6133,16 +6128,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\Crist\\Desktop\\ED02_LAB03\\API_Proyecto3\\obj\\API_Proyecto3.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
