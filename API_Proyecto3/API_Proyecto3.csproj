@@ -8,5 +8,15 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LibreriaGenericos\LibreriaGenericos.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Archivos Compress\" />
+    <Folder Include="Archivos Decompress\" />
+    <Folder Include="Archivos Originales\" />
+  </ItemGroup>
+
 
 </Project>
