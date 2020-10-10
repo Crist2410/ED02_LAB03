@@ -64,56 +64,71 @@ namespace API_Proyecto3.Controllers
         }
         // POST: api/compress/name
         [HttpPost("compress/{name}")]
-        public FileStreamResult Compress([FromForm] IFormFile file,[FromRoute]string name)
+        public IActionResult Compress([FromForm] IFormFile file,[FromRoute]string name)
         {
-            Compressions NuevoArchivo = new Compressions();
-            string RutaOriginal = Path.GetFullPath("Archivos Originales\\"+ file.FileName);
-            string RutaCompresion = Path.GetFullPath("Archivos Compress\\" + name + ".huff");
-            FileStream ArchivoOriginal = new FileStream(RutaOriginal, FileMode.OpenOrCreate);
-            file.CopyTo(ArchivoOriginal);
-            ArchivoOriginal.Close();
-            Compresor.Comprimir(RutaOriginal, RutaCompresion);
-            FileInfo Original = new FileInfo(RutaOriginal);
-            FileInfo Comprimido = new FileInfo(RutaCompresion);
-            NuevoArchivo.NombreOriginal = file.FileName;
-            NuevoArchivo.NombreComprimido = name + ".huff";
-            if (!DicCompress.ContainsKey(NuevoArchivo.NombreOriginal))
+            try
             {
-                DicCompress.Add(NuevoArchivo.NombreOriginal, NuevoArchivo.NombreComprimido);
-                DicDecompress.Add(NuevoArchivo.NombreComprimido, NuevoArchivo.NombreOriginal);
-                NuevoArchivo.RazonCompresion = (double)Comprimido.Length / Original.Length;
-                NuevoArchivo.FactorCompresion = (double)Original.Length / Comprimido.Length;
-                NuevoArchivo.PorcentajeReduccion = (double)NuevoArchivo.FactorCompresion * 100;
-                NuevoArchivo.RutaComprimido = Path.GetFullPath("Archivos Compress\\" + NuevoArchivo.NombreComprimido);
-                ListArchivos.Add(NuevoArchivo);
-                string Historial = Path.GetFullPath("DatosHuffman\\" + "Historial.txt");
-                StreamWriter writer = new StreamWriter(Historial, true);
-                string Texto = NuevoArchivo.NombreOriginal +"~"+ Original.Length+"~"+ NuevoArchivo.NombreComprimido + "~" + Comprimido.Length + "~";
-                writer.WriteLine(Texto);
-                writer.Close();
+                Compressions NuevoArchivo = new Compressions();
+                string RutaOriginal = Path.GetFullPath("Archivos Originales\\" + file.FileName);
+                string RutaCompresion = Path.GetFullPath("Archivos Compress\\" + name + ".huff");
+                FileStream ArchivoOriginal = new FileStream(RutaOriginal, FileMode.OpenOrCreate);
+                file.CopyTo(ArchivoOriginal);
+                ArchivoOriginal.Close();
+                Compresor.Comprimir(RutaOriginal, RutaCompresion);
+                FileInfo Original = new FileInfo(RutaOriginal);
+                FileInfo Comprimido = new FileInfo(RutaCompresion);
+                NuevoArchivo.NombreOriginal = file.FileName;
+                NuevoArchivo.NombreComprimido = name + ".huff";
+                if (!DicCompress.ContainsKey(NuevoArchivo.NombreOriginal))
+                {
+                    DicCompress.Add(NuevoArchivo.NombreOriginal, NuevoArchivo.NombreComprimido);
+                    DicDecompress.Add(NuevoArchivo.NombreComprimido, NuevoArchivo.NombreOriginal);
+                    NuevoArchivo.RazonCompresion = (double)Comprimido.Length / Original.Length;
+                    NuevoArchivo.FactorCompresion = (double)Original.Length / Comprimido.Length;
+                    NuevoArchivo.PorcentajeReduccion = (double)NuevoArchivo.FactorCompresion * 100;
+                    NuevoArchivo.RutaComprimido = Path.GetFullPath("Archivos Compress\\" + NuevoArchivo.NombreComprimido);
+                    ListArchivos.Add(NuevoArchivo);
+                    string Historial = Path.GetFullPath("DatosHuffman\\" + "Historial.txt");
+                    StreamWriter writer = new StreamWriter(Historial, true);
+                    string Texto = NuevoArchivo.NombreOriginal + "~" + Original.Length + "~" + NuevoArchivo.NombreComprimido + "~" + Comprimido.Length + "~";
+                    writer.WriteLine(Texto);
+                    writer.Close();
+                }
+                FileStream ArchivoFinal = new FileStream(RutaCompresion, FileMode.Open);
+                FileStreamResult FileFinal = new FileStreamResult(ArchivoFinal, "text/huff");
+                return FileFinal;
             }
-            FileStream ArchivoFinal = new FileStream(RutaCompresion, FileMode.Open);
-            FileStreamResult FileFinal = new FileStreamResult(ArchivoFinal, "text/huff");
-            return FileFinal;
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // POST: api/decompress
         [HttpPost("decompress")]
-        public FileStreamResult Decompress([FromForm]  IFormFile file)
+        public IActionResult Decompress([FromForm]  IFormFile file)
         {
-            string RutaCompresion = Path.GetFullPath("Archivos Compress\\" + file.FileName);
-            FileStream ArchivoCompresion = new FileStream(RutaCompresion, FileMode.OpenOrCreate);
-            file.CopyTo(ArchivoCompresion);
-            ArchivoCompresion.Close();
-            string NombreOriginal = DicDecompress[file.FileName];
-            string RutaDescompresion = Path.GetFullPath("Archivos Decompress\\" + NombreOriginal);
-            Compresor.Descomprimir(RutaCompresion, RutaDescompresion);
-            FileStream ArchivoFinal = new FileStream(RutaDescompresion, FileMode.Open);
-            FileStreamResult FileFinal = new FileStreamResult(ArchivoFinal, "text/txt");
-            return FileFinal;
+            try
+            {
+                string RutaCompresion = Path.GetFullPath("Archivos Compress\\" + file.FileName);
+                FileStream ArchivoCompresion = new FileStream(RutaCompresion, FileMode.OpenOrCreate);
+                file.CopyTo(ArchivoCompresion);
+                ArchivoCompresion.Close();
+                string NombreOriginal = DicDecompress[file.FileName];
+                string RutaDescompresion = Path.GetFullPath("Archivos Decompress\\" + NombreOriginal);
+                Compresor.Descomprimir(RutaCompresion, RutaDescompresion);
+                FileStream ArchivoFinal = new FileStream(RutaDescompresion, FileMode.Open);
+                FileStreamResult FileFinal = new FileStreamResult(ArchivoFinal, "text/txt");
+                return FileFinal;
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
 
-        // DELETE: api/ApiWithActions/5
+        // GET: api/compressions
         [HttpGet("compressions")]
         public IEnumerable<Compressions> Compressions()
         {
